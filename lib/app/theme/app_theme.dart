@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:home_assist/app/theme/app_colors.dart';
 
 class AppTheme {
   AppTheme._();
@@ -7,7 +8,7 @@ class AppTheme {
     return ThemeData(
       useMaterial3: true,
       colorScheme: ColorScheme.fromSeed(
-        seedColor: Colors.indigo,
+        seedColor: AppColors.seed,
         brightness: Brightness.light,
       ),
 
@@ -20,8 +21,10 @@ class AppTheme {
       ),
 
       cardTheme: CardThemeData(
-        elevation: 0,
+        elevation: 2,
+        // color: AppColors.seed.shade500,
         shape: RoundedRectangleBorder(
+          side: BorderSide(width: 0.5, color: AppColors.seed, ),
           borderRadius: BorderRadius.circular(20),
         ),
       ),
