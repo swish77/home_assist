@@ -9,24 +9,26 @@ class GreetingSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      mainAxisSize: MainAxisSize.max,
+      // mainAxisSize: MainAxisSize.max,
 
       children: [
-        Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          mainAxisSize: MainAxisSize.max,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text('Hi, $userName 👋',
-              style: Theme.of(context).textTheme.headlineSmall,
-              // style: TextStyle(fontSize: 24,
-              //   fontWeight: FontWeight.bold),
-            ),
-            // SizedBox(height:10),
-            Text('$userLocation 📍',
-              style: Theme.of(context).textTheme.bodyMedium,
-            )
-          ],
+        Flexible(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisSize: MainAxisSize.max,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text('Hi, $userName 👋',
+                style: Theme.of(context).textTheme.headlineSmall,
+                // style: TextStyle(fontSize: 24,
+                //   fontWeight: FontWeight.bold),
+              ),
+              // SizedBox(height:10),
+              Text('$userLocation 📍',
+                style: Theme.of(context).textTheme.bodyMedium,
+              )
+            ],
+          ),
         ),
         CircleAvatar()
       ],

@@ -31,7 +31,7 @@ class AppTheme {
 
       filledButtonTheme: FilledButtonThemeData(
         style: FilledButton.styleFrom(
-          minimumSize: const Size(double.infinity, 52),
+          minimumSize: const Size(double.infinity, 40),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(16),
           ),
@@ -43,15 +43,19 @@ class AppTheme {
         fillColor: Colors.white,
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(16),
-          borderSide: BorderSide.none,
+          // borderSide: BorderSide.none,
+          borderSide: BorderSide(color: AppColors.seed)
         ),
         enabledBorder: OutlineInputBorder(
+          // borderRadius: BorderRadius.circular(16),
+          // borderSide: BorderSide.none,
           borderRadius: BorderRadius.circular(16),
-          borderSide: BorderSide.none,
+          borderSide: BorderSide(color: AppColors.seed)
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(16),
-          borderSide: BorderSide.none,
+          borderSide: BorderSide(color: AppColors.seed)
+          // borderSide: BorderSide.none,
         ),
         contentPadding: const EdgeInsets.symmetric(
           horizontal: 16,

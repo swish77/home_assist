@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:home_assist/shared/widgets/section_header.dart';
 
 class ActiveBookingCard extends StatelessWidget {
   final String serviceName;
@@ -16,24 +17,26 @@ class ActiveBookingCard extends StatelessWidget {
     final textTheme = theme.textTheme;
 
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 15.0),
+      padding: const EdgeInsets.symmetric(vertical: 10.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text('Active Booking', style: textTheme.titleMedium!.copyWith(
-            color: Colors.deepPurple.shade600
-          ),),
+          SectionHeader(sectionName: 'Active Booking'),
           Card(
             // color: Theme.of(context).colorScheme.primaryContainer,
             // elevation: 5,
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(20)
+            ),
             margin: const EdgeInsets.symmetric(vertical: 10),
             child: Container(
               decoration: BoxDecoration(
                 gradient: LinearGradient(colors: [colorScheme.primary,
                   colorScheme.inversePrimary,]),
+                // border: Border(right: BorderSide.none, top: BorderSide.none )
                 borderRadius: BorderRadius.circular(10)
               ),
-              padding: const EdgeInsets.all(15.0),
+              padding: const EdgeInsets.all(14.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [

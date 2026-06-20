@@ -12,10 +12,10 @@ class SearchSection extends StatelessWidget {
            hint: Text('Search for Services...'),
            hintStyle: TextStyle(color: Theme.of(context).hintColor),
            suffixIcon: Icon(Icons.search, color: Theme.of(context).primaryColor,),
-           enabledBorder: OutlineInputBorder(
-             borderRadius: BorderRadius.circular(10),
-             borderSide: BorderSide(color: Theme.of(context).primaryColor)
-           ),
+           // enabledBorder: OutlineInputBorder(
+           //   borderRadius: BorderRadius.circular(10),
+           //   borderSide: BorderSide(color: Theme.of(context).primaryColor)
+           // ),
            // fillColor: Theme.of(context).primaryColor,
            // filled: true,
            // fillColor: Theme.of(context).canvasColor
