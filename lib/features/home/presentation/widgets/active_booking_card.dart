@@ -19,7 +19,7 @@ class ActiveBookingCard extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        SizedBox(height: 10,),
+        SizedBox(height: 20,),
         SectionHeader(sectionName: 'Active Booking'),
         Card(
           // color: Theme.of(context).colorScheme.primaryContainer,
@@ -39,6 +39,7 @@ class ActiveBookingCard extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
+
                 Flexible(flex:1,
                     child: Text(serviceName, style: textTheme.titleMedium!.copyWith(
                       color: Colors.white

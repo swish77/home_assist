@@ -23,7 +23,7 @@ class AiAssistantCard extends StatelessWidget {
                 children: [
                   Text('Need help finding your service?', style: textTheme.bodyMedium,),
                   SizedBox(height: 10,),
-                  Text('Describe the issue ->', style: textTheme.bodyMedium!.copyWith(
+                  Text('Describe the issue ->', style: textTheme.labelLarge!.copyWith(
                     color: colorScheme.onPrimaryFixed, decoration: TextDecoration.underline,
                   ),)
                 ],

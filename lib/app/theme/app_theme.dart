@@ -21,7 +21,7 @@ class AppTheme {
       ),
 
       cardTheme: CardThemeData(
-        elevation: 2,
+        elevation: 5,
         // color: AppColors.seed.shade500,
         shape: RoundedRectangleBorder(
           side: BorderSide(width: 0.5, color: AppColors.seed, ),
@@ -41,7 +41,9 @@ class AppTheme {
 
       inputDecorationTheme: InputDecorationTheme(
         filled: true,
-        fillColor: Colors.white,
+        // fillColor: Colors.white,
+        // fillColor: Color(0xffbdb8c5),
+        fillColor: Color(0xffEEE8F8),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(16),
           // borderSide: BorderSide.none,

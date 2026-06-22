@@ -1,26 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:home_assist/shared/widgets/search_services.dart';
 
-class SearchSection extends StatelessWidget {
+class SearchSection extends StatefulWidget {
   const SearchSection({super.key});
+
+  @override
+  State<SearchSection> createState() => _SearchSectionState();
+}
+
+class _SearchSectionState extends State<SearchSection> {
+
+  final TextEditingController _searchController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 15.0),
-      child: TextField(
-         decoration: InputDecoration(
-           hint: Text('Search for Services...'),
-           hintStyle: TextStyle(color: Theme.of(context).hintColor),
-           suffixIcon: Icon(Icons.search, color: Theme.of(context).primaryColor,),
-           // enabledBorder: OutlineInputBorder(
-           //   borderRadius: BorderRadius.circular(10),
-           //   borderSide: BorderSide(color: Theme.of(context).primaryColor)
-           // ),
-           // fillColor: Theme.of(context).primaryColor,
-           // filled: true,
-           // fillColor: Theme.of(context).canvasColor
-         ),
-      ),
+      child: SearchServices(hintText: 'Search for Services...', controller: _searchController,
+     ),
     );
   }
 }

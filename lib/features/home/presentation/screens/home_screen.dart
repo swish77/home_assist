@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:home_assist/core/constants/app_spacing.dart';
 import 'package:home_assist/features/home/presentation/widgets/active_booking_card.dart';
 import 'package:home_assist/features/home/presentation/widgets/ai_assistant_card.dart';
 import 'package:home_assist/features/home/presentation/widgets/categories_section.dart';
@@ -13,10 +14,11 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Theme.of(context).colorScheme.onInverseSurface,
       body: SafeArea(
           child: SingleChildScrollView(
             child: Padding(
-              padding: const EdgeInsets.all(25.0),
+              padding: const EdgeInsets.all(AppSpacing.lg),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [

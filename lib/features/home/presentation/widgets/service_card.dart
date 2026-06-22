@@ -23,9 +23,16 @@ class ServiceCard extends StatelessWidget {
           side: BorderSide(width: 0.5, color: AppColors.seed, ),
           borderRadius: BorderRadius.circular(20),
         ),
-        child: Padding(
+        child: Container(
+          decoration: BoxDecoration(
+              gradient: LinearGradient(colors: [theme.colorScheme.inversePrimary, theme.colorScheme.primary,
+                theme.colorScheme.inversePrimary, ]),
+              // border: Border(right: BorderSide.none, top: BorderSide.none )
+              borderRadius: BorderRadius.circular(20)
+          ),
           padding: const EdgeInsets.all(16),
           child: Column(
+            mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               CircleAvatar(

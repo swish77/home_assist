@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:home_assist/core/constants/categories.dart';
 import 'package:home_assist/features/home/presentation/widgets/category_chip.dart';
 import 'package:home_assist/features/services/domain/entities/service_category.dart';
+import 'package:home_assist/features/services/presentation/screens/services_list_screen.dart';
 import 'package:home_assist/shared/widgets/section_header.dart';
 
 class CategoriesSection extends StatefulWidget {
@@ -38,8 +39,15 @@ class _CategoriesSectionState extends State<CategoriesSection> {
               shrinkWrap: true,
               scrollDirection: Axis.horizontal,
               itemCount: categories.length,
-                itemBuilder: (context, index){
-              return CategoryChip(title: categories[index].name, icon: categories[index].icon, onTap: (){});
+              itemBuilder: (context, index){
+              return CategoryChip(title: categories[index].name, icon: categories[index].icon,
+                  onTap: (){
+                    Navigator.push(context,
+                      MaterialPageRoute(builder: (_){
+                        return ServicesListScreen(category: categories[index]);
+                      })
+                );
+              });
             }),
           )
         ],

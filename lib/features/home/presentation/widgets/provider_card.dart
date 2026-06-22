@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:home_assist/features/providers/domain/entities/service_providers.dart';
+import 'package:home_assist/features/providers/presentation/screens/provider_profile_screen.dart';
 import 'package:home_assist/shared/widgets/icon_text.dart';
 
 class ProviderCard extends StatelessWidget {
@@ -18,6 +19,7 @@ class ProviderCard extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.all(16),
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -29,6 +31,7 @@ class ProviderCard extends StatelessWidget {
 
                   // Spacer(),
                   SizedBox(width: 20,),
+
                   Expanded(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -36,6 +39,8 @@ class ProviderCard extends StatelessWidget {
                       children: [
                         Text(
                           providerModel.name,
+                          maxLines: 2,
+                          overflow: TextOverflow.ellipsis,
                           style: Theme.of(context).textTheme.titleMedium,
                         ),
 
@@ -66,11 +71,20 @@ class ProviderCard extends StatelessWidget {
                 ],
               ),
               SizedBox(height: 10,),
+
               FilledButton(
-                onPressed: providerModel.onTap,
+                onPressed: ()=>Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (_) => ProviderProfileScreen(
+                      provider: providerModel,
+                    ),
+                  ),
+                ),
                 child: Text('View Profile',
-                  style: Theme.of(context).textTheme.titleSmall!.copyWith(
-                    // color: Theme.of(context).colorScheme.onPrimaryFixed
+                  style: Theme.of(context).textTheme.titleSmall!
+                      .copyWith(
+                    // color: Theme.of(context).colorScheme.onTertiary
                   ),),
               ),
             ],
