@@ -51,29 +51,27 @@ class _TopProvidersSectionState extends State<TopProvidersSection> {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 10.0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          SectionHeader(sectionName: 'Top Providers'),
-          SizedBox(height: 10,),
-          SizedBox(
-            height: 200,
-            child: ListView.separated(
-              scrollDirection: Axis.horizontal,
-              physics: const BouncingScrollPhysics(),
-              itemCount: providers.length,
-              separatorBuilder: (_, _) => const SizedBox(width: 12),
-              itemBuilder: (context, index) {
-                return ProviderCard(
-                  providerModel: providers[index],
-                );
-              },
-            ),
-          )
-        ],
-      ),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        SizedBox(height: 10,),
+        SectionHeader(sectionName: 'Top Providers'),
+        SizedBox(height: 10,),
+        SizedBox(
+          height: 200,
+          child: ListView.separated(
+            scrollDirection: Axis.horizontal,
+            physics: const BouncingScrollPhysics(),
+            itemCount: providers.length,
+            separatorBuilder: (_, _) => const SizedBox(width: 12),
+            itemBuilder: (context, index) {
+              return ProviderCard(
+                providerModel: providers[index],
+              );
+            },
+          ),
+        )
+      ],
     );
   }
 }

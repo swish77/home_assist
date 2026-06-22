@@ -18,12 +18,12 @@ class _CategoriesSectionState extends State<CategoriesSection> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 20.0),
+      padding: const EdgeInsets.symmetric(vertical: 10.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           SectionHeader(sectionName: 'Categories'),
-          const SizedBox(height: 12),
+          const SizedBox(height: 10),
 
           // Wrap(
           //   runSpacing: 10,

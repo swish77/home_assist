@@ -105,6 +105,7 @@ class _PopularServicesSectionState extends State<PopularServicesSection> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
+        SizedBox(height: 20,),
         SectionHeader(sectionName: 'Popular Services'),
         SizedBox(height: 10,),
 

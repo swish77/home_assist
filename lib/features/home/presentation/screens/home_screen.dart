@@ -22,8 +22,9 @@ class HomeScreen extends StatelessWidget {
                 children: [
                   GreetingSection(userName: 'Peter', userLocation: 'Manikonda, Hyderabad',),
                   SearchSection(),
-                  ActiveBookingCard(serviceName: 'AC Repair', workerName: 'Ravi Kumar', status: 'On the way', eta: '15 mins', onPressed: (){}),
+
                   AiAssistantCard(),
+                  ActiveBookingCard(serviceName: 'AC Repair', workerName: 'Ravi Kumar', status: 'On the way', eta: '15 mins', onPressed: (){}),
                   CategoriesSection(),
                   TopProvidersSection(),
                   PopularServicesSection()

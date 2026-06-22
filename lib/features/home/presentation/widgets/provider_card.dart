@@ -66,12 +66,12 @@ class ProviderCard extends StatelessWidget {
                 ],
               ),
               SizedBox(height: 10,),
-              SizedBox(
-                // width: 90,
-                child: FilledButton(
-                  onPressed: providerModel.onTap,
-                  child: const Text('View Profile'),
-                ),
+              FilledButton(
+                onPressed: providerModel.onTap,
+                child: Text('View Profile',
+                  style: Theme.of(context).textTheme.titleSmall!.copyWith(
+                    // color: Theme.of(context).colorScheme.onPrimaryFixed
+                  ),),
               ),
             ],
           ),
