@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:home_assist/core/constants/providers.dart';
 import 'package:home_assist/features/home/presentation/widgets/provider_card.dart';
-import 'package:home_assist/features/providers/domain/entities/service_providers.dart';
 import 'package:home_assist/shared/widgets/section_header.dart';
 
 class TopProvidersSection extends StatefulWidget {

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:home_assist/app/theme/app_colors.dart';
 
 class AiAssistantCard extends StatelessWidget {
   const AiAssistantCard({super.key});

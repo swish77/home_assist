@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:home_assist/app/theme/app_colors.dart';
+import 'package:home_assist/features/bookings/presentation/screens/booking_screen.dart';
 import 'package:home_assist/features/services/domain/entities/service.dart';
 
 class ServiceCard extends StatelessWidget {
@@ -78,7 +79,11 @@ class ServiceCard extends StatelessWidget {
               SizedBox(
                 width: double.infinity,
                 child: FilledButton(
-                  onPressed: service.onTap,
+                  onPressed: (){
+                    Navigator.push(context,
+                      MaterialPageRoute(builder: (context)=>
+                        BookingScreen(service: service)));
+                  },
                   style: FilledButton.styleFrom(
                     backgroundColor: theme.colorScheme.onInverseSurface,
                       // minimumSize: const Size(double.infinity, 40),

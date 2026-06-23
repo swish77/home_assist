@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:home_assist/core/constants/app_spacing.dart';
 import 'package:home_assist/features/services/domain/entities/service_category.dart';
-import 'package:home_assist/features/services/presentation/widgets/category_header.dart';
 import 'package:home_assist/features/services/presentation/widgets/service_cards_section.dart';
 import 'package:home_assist/shared/widgets/search_services.dart';
 
@@ -30,9 +29,6 @@ class _ServicesListScreenState extends State<ServicesListScreen> {
         padding: const EdgeInsets.symmetric(horizontal: AppSpacing.lg),
         child: Column(
           children: [
-            // SizedBox(height: 20,),
-
-            // CategoryHeader(category: category),
 
             SizedBox(height: 20,),
 

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:home_assist/core/constants/categories.dart';
 import 'package:home_assist/features/home/presentation/widgets/category_chip.dart';
-import 'package:home_assist/features/services/domain/entities/service_category.dart';
 import 'package:home_assist/features/services/presentation/screens/services_list_screen.dart';
 import 'package:home_assist/shared/widgets/section_header.dart';
 

@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 
 class BookNowButton extends StatelessWidget {
-  const BookNowButton({super.key});
+  final VoidCallback onPressedBook;
+  const BookNowButton({super.key, required this.onPressedBook});
 
   @override
   Widget build(BuildContext context) {
-    return FilledButton(onPressed: (){},
+    return FilledButton(onPressed: onPressedBook,
         child: Text('Book Now'));
   }
 }

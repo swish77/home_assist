@@ -1,5 +1,3 @@
-import 'package:flutter/material.dart';
-
 class ProviderModel {
   final String id;
   final String avatar;

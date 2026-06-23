@@ -16,7 +16,8 @@ class _SearchSectionState extends State<SearchSection> {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 15.0),
-      child: SearchServices(hintText: 'Search for Services...', controller: _searchController,
+      child: SearchServices(hintText: 'Search for Services...',
+        controller: _searchController,
      ),
     );
   }

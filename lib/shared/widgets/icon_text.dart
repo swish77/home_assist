@@ -16,8 +16,8 @@ class IconText extends StatelessWidget {
     return Row(
       mainAxisSize: MainAxisSize.min,
       children: [
-        Icon(icon, size: 16),
-        const SizedBox(width: 4),
+        Icon(icon, size: 16, color: Theme.of(context).colorScheme.primary,),
+        const SizedBox(width: 5),
         Text(text, style: textStyle),
       ],
     );

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:home_assist/core/constants/providers.dart';
 import 'package:home_assist/shared/widgets/section_header.dart';
 
 class ServicesOfferedSection extends StatelessWidget {

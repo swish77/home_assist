@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:home_assist/features/services/domain/entities/service_category.dart';
 
 class Service {
@@ -7,13 +5,17 @@ class Service {
   final String name;
   final ServiceCategory category;
   final double startingPrice;
-  final VoidCallback onTap;
+  final String description;
+  final String duration;
+  final double rating;
 
   const Service({
     required this.id,
     required this.name,
     required this.category,
     required this.startingPrice,
-    required this.onTap,
+    required this.description,
+    required this.duration,
+    required this.rating
   });
 }

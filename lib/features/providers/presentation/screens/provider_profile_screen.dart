@@ -39,7 +39,11 @@ class ProviderProfileScreen extends StatelessWidget {
 
                   SizedBox(height: 20,),
 
-                  BookNowButton()
+                  BookNowButton(onPressedBook: () {
+                    // Navigator.push(context,
+                    //     MaterialPageRoute(builder: (context)=>
+                    //         BookingScreen(service: service)));
+                  },)
                 ],
               ),
             ),
