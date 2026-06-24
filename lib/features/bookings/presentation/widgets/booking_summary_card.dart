@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:home_assist/features/bookings/domain/entities/booking.dart';
-import 'package:intl/intl.dart';
+
 
 class BookingSummaryCard extends StatelessWidget {
   final Booking booking;

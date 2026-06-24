@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:home_assist/core/constants/app_spacing.dart';
 import 'package:home_assist/core/constants/services.dart';
 import 'package:home_assist/features/bookings/presentation/screens/booking_screen.dart';
 import 'package:home_assist/features/providers/presentation/widgets/book_now_button.dart';
@@ -132,7 +133,7 @@ class ServiceCardsSection extends StatelessWidget {
                       ),
 
 
-                      SizedBox(height: 30,),
+                      SizedBox(height: AppSpacing.xl,),
 
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 20.0),
@@ -141,7 +142,7 @@ class ServiceCardsSection extends StatelessWidget {
                           children: [
                             SectionHeader(sectionName: 'Description',),
 
-                            Text("${service.description} ${service.description} ${service.description} ${service.description}",
+                            Text(service.description,
                               // service.description,
                               style: theme.textTheme.bodyLarge,),
                           ],

@@ -8,7 +8,7 @@ class BookingBottomBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
         child: Padding(
-            padding: EdgeInsets.all(8),
+            padding: EdgeInsets.only(left: 25, bottom: 30, right: 25),
             child: FilledButton(onPressed: onClickedConfirm,
                 child: Text('Confirm Booking')
             ),

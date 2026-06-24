@@ -67,7 +67,7 @@ class _BookingScreenState extends State<BookingScreen> {
     }
 
     Navigator.push(context, MaterialPageRoute(builder: (context){
-      return BookingSuccessScreen(booking: Booking(id: 'BK${DateTime.now().millisecondsSinceEpoch}', serviceId: widget.service.id, serviceName: widget.service.name, bookingDate: selectedDate!, address: addressController.text.trim(), status: 'Success', bookingTime: selectedTime!),);
+      return BookingSuccessScreen(booking: Booking(id: 'BK${DateTime.now().millisecondsSinceEpoch}', serviceId: widget.service.id, serviceName: widget.service.name, bookingDate: selectedDate!, address: addressController.text.trim(), status: 'Success', bookingTime: selectedTime!, providerName: '', amount: widget.service.startingPrice),);
     }));
 
   }
