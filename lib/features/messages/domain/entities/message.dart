@@ -32,12 +32,18 @@ class Message {
     if (timestamp.day == now.day &&
         timestamp.month == now.month &&
         timestamp.year == now.year) {
+
       return DateFormat('hh:mm a')
+          .format(timestamp);
+
+    }
+
+    if (timestamp.year == now.year) {
+      return DateFormat('dd MMM')
           .format(timestamp);
     }
 
-    return DateFormat('dd MMM')
-        .format(timestamp);
+    return DateFormat("dd MM yyyy").format(timestamp);
   }
 
 }

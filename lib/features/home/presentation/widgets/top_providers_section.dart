@@ -18,8 +18,11 @@ class _TopProvidersSectionState extends State<TopProvidersSection> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         SizedBox(height: 10,),
+
         SectionHeader(sectionName: 'Top Providers'),
+
         SizedBox(height: 10,),
+
         SizedBox(
           height: 220,
           child: ListView.separated(
