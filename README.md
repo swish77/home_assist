@@ -20,25 +20,29 @@ The project was built to practice scalable Flutter development with a modular ar
 
 ## 📱 Screens
 
-> Screenshots coming soon.
-
 * Home
-  <img width="1080" height="2400" alt="Screenshot_20260711-210232_home_assist" src="https://github.com/user-attachments/assets/6fabf57d-b98c-4c54-9ddb-02147e3ce63b" />
-<img width="1080" height="2400" alt="Screenshot_20260711-210241_home_assist" src="https://github.com/user-attachments/assets/b28a9f55-5222-49f5-857a-758e3e65204e" />
+  
+  <img width="200" height="400" alt="Screenshot_20260711-210232_home_assist" src="https://github.com/user-attachments/assets/6fabf57d-b98c-4c54-9ddb-02147e3ce63b" />                     <img width="200" height="400" alt="Screenshot_20260711-210241_home_assist" src="https://github.com/user-attachments/assets/b28a9f55-5222-49f5-857a-758e3e65204e" />
+
 
 * Category-wise Service Details
-<img width="1080" height="2400" alt="Screenshot_20260711-210353_home_assist" src="https://github.com/user-attachments/assets/eb0bbda0-5188-4083-aba3-06290b7103b8" />
-<img width="1080" height="2400" alt="Screenshot_20260712-000743_home_assist" src="https://github.com/user-attachments/assets/d17312f5-630e-470a-8ae5-265c52191936" />
+  
+  <img width="200" height="400" alt="Screenshot_20260711-210353_home_assist" src="https://github.com/user-attachments/assets/eb0bbda0-5188-4083-aba3-06290b7103b8" />
+  <img width="200" height="400" alt="Screenshot_20260712-000743_home_assist" src="https://github.com/user-attachments/assets/d17312f5-630e-470a-8ae5-265c52191936" />
 
 
 * AI Assistant
-  <img width="1080" height="2400" alt="Screenshot_20260711-210333_home_assist" src="https://github.com/user-attachments/assets/bab413dc-7295-41ec-aa3c-34fd14deb9f9" />
+
+  <img width="200" height="400" alt="Screenshot_20260711-210333_home_assist" src="https://github.com/user-attachments/assets/bab413dc-7295-41ec-aa3c-34fd14deb9f9" />
+  
 
 * Booking
-<img width="1080" height="2400" alt="Screenshot_20260712-000604_home_assist" src="https://github.com/user-attachments/assets/82e177cd-2729-4530-93aa-1786cc91f4f0" />
+  
+  <img width="200" height="400" alt="Screenshot_20260712-000604_home_assist" src="https://github.com/user-attachments/assets/82e177cd-2729-4530-93aa-1786cc91f4f0" />
 
 * My Bookings
-  <img width="1080" height="2400" alt="Screenshot_20260711-210305_home_assist" src="https://github.com/user-attachments/assets/ab43c48d-ccfb-49b8-9cd9-3583a14c3a37" />
+  
+  <img width="200" height="400" alt="Screenshot_20260711-210305_home_assist" src="https://github.com/user-attachments/assets/ab43c48d-ccfb-49b8-9cd9-3583a14c3a37" />
   
 ---
 
@@ -89,19 +93,6 @@ flutter pub get
 ```bash
 flutter run
 ```
-
----
-
-## 🔮 Planned Improvements
-
-* User authentication
-* Real backend integration
-* Booking cancellation and rescheduling
-* Search and filtering
-* Notifications
-* Payment integration
-* Provider profiles
-* Dark mode
 
 ---
 
