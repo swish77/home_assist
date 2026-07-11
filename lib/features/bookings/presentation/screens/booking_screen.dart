@@ -1,22 +1,25 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:home_assist/core/constants/app_spacing.dart';
 import 'package:home_assist/features/bookings/domain/entities/booking.dart';
+import 'package:home_assist/features/bookings/presentation/notifiers/create_booking_notifier.dart';
 import 'package:home_assist/features/bookings/presentation/screens/booking_success_screen.dart';
+import 'package:home_assist/features/bookings/presentation/state/create_booking_state.dart';
 import 'package:home_assist/features/bookings/presentation/widgets/booking_bottom_bar.dart';
 import 'package:home_assist/features/bookings/presentation/widgets/booking_date_time_section.dart';
 import 'package:home_assist/features/bookings/presentation/widgets/service_summary_card.dart';
 import 'package:home_assist/features/services/domain/entities/service.dart';
 
-class BookingScreen extends StatefulWidget {
+class BookingScreen extends ConsumerStatefulWidget {
 
   final Service service;
   const BookingScreen({super.key, required this.service});
 
   @override
-  State<BookingScreen> createState() => _BookingScreenState();
+  ConsumerState<BookingScreen> createState() => _BookingScreenState();
 }
 
-class _BookingScreenState extends State<BookingScreen> {
+class _BookingScreenState extends ConsumerState<BookingScreen> {
 
   DateTime? selectedDate;
   TimeOfDay? selectedTime;
@@ -28,7 +31,34 @@ class _BookingScreenState extends State<BookingScreen> {
   bool dateError = false;
   bool timeError = false;
 
-  void onConfirm(){
+
+  @override
+  void initState() {
+    super.initState();
+
+    ref.listenManual<CreateBookingState>(createBookingProvider,
+      (previous, next){
+          if(next.booking != null){
+            Navigator.push(context, MaterialPageRoute(builder: (context){
+              return BookingSuccessScreen(booking: next.booking!
+              // Booking(id: 'BK${DateTime.now().millisecondsSinceEpoch}',
+              //     serviceId: widget.service.id, serviceName: widget.service.name,
+              //     bookingDate: selectedDate!, address: addressController.text.trim(),
+              //     status: 'Success', bookingTime: selectedTime!, providerName: '', amount: widget.service.startingPrice),
+              );
+            }));
+          }
+
+          if(next.error != null){
+            ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(content: Text(next.error.toString()))
+            );
+          }
+        }
+    );
+  }
+
+  Future<void> onConfirm() async {
     dateError = false;
     timeError = false;
 
@@ -66,9 +96,18 @@ class _BookingScreenState extends State<BookingScreen> {
       return;
     }
 
-    Navigator.push(context, MaterialPageRoute(builder: (context){
-      return BookingSuccessScreen(booking: Booking(id: 'BK${DateTime.now().millisecondsSinceEpoch}', serviceId: widget.service.id, serviceName: widget.service.name, bookingDate: selectedDate!, address: addressController.text.trim(), status: 'Success', bookingTime: selectedTime!, providerName: '', amount: widget.service.startingPrice),);
-    }));
+
+    final booking = Booking(id: '', serviceId: widget.service.id, serviceName: widget.service.name,
+        bookingDate: selectedDate!, address: addressController.text.trim(),
+        status: 'Confirmed', bookingTime: selectedTime!, providerName: '', amount: widget.service.startingPrice,
+        notes: notesController.text.trim());
+
+    await ref.read(createBookingProvider.notifier).createBooking(booking);
+
+    // if(!mounted) return;
+    // Navigator.push(context, MaterialPageRoute(builder: (context){
+    //   return BookingSuccessScreen(booking: Booking(id: 'BK${DateTime.now().millisecondsSinceEpoch}', serviceId: widget.service.id, serviceName: widget.service.name, bookingDate: selectedDate!, address: addressController.text.trim(), status: 'Success', bookingTime: selectedTime!, providerName: '', amount: widget.service.startingPrice),);
+    // }));
 
   }
   
@@ -101,8 +140,11 @@ class _BookingScreenState extends State<BookingScreen> {
   @override
   Widget build(BuildContext context) {
 
+    final bookingState = ref.watch(createBookingProvider);
+
     return Scaffold(
       bottomNavigationBar: BookingBottomBar(
+        isLoading: bookingState.isLoading,
         onClickedConfirm: onConfirm,),
       appBar: AppBar(
         title: Text('Booking'),

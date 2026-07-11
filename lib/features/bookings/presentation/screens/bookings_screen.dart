@@ -1,44 +1,113 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:home_assist/core/constants/app_spacing.dart';
-import 'package:home_assist/core/constants/bookings.dart';
 import 'package:home_assist/features/bookings/domain/entities/booking.dart';
+import 'package:home_assist/features/bookings/presentation/notifiers/bookings_list_notifier.dart';
 import 'package:home_assist/features/bookings/presentation/widgets/booking_item_card.dart';
 
-class BookingsScreen extends StatefulWidget {
+class BookingsScreen extends ConsumerStatefulWidget {
   const BookingsScreen({super.key});
 
   @override
-  State<BookingsScreen> createState() => _BookingsScreenState();
+  ConsumerState<BookingsScreen> createState() => _BookingsScreenState();
 }
 
-class _BookingsScreenState extends State<BookingsScreen> {
+class _BookingsScreenState extends ConsumerState<BookingsScreen> {
 
-  List<Booking> activeBookings = [];
-  List<Booking> historyBookings = [];
+  // List<Booking> activeBookings = [];
+  // List<Booking> historyBookings = [];
 
 
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-    getBookings();
-  }
+    // getBookings();
 
-  void getBookings(){
-    activeBookings = bookings
-        .where((booking) =>
-    booking.status == 'Upcoming' ||
-        booking.status == 'Confirmed')
-        .toList();
-
-    historyBookings = bookings
-        .where((booking) =>
-    booking.status == 'Completed')
-        .toList();
+      Future.microtask((){
+        ref.read(bookingsListProvider.notifier).getBookings();
+      });
   }
 
   @override
   Widget build(BuildContext context) {
+
+    final bookingsState = ref.watch(bookingsListProvider);
+
+    final activeBookings = bookingsState.bookings.where(
+            (booking) => booking.status == "Confirmed"
+                || booking.status == "Upcoming")
+        .toList();
+
+    final historyBookings = bookingsState.bookings.where(
+            (booking) =>  booking.status == "Completed" ||
+                booking.status == "Cancelled")
+        .toList();
+
+
+    // Loading State
+    if (bookingsState.isLoading) {
+      return Scaffold(
+        appBar: AppBar(
+          title: const Text('My Bookings'),
+          centerTitle: true,
+          backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+        ),
+        body: const Center(
+          child: CircularProgressIndicator(),
+        ),
+      );
+    }
+
+
+    // Error State
+    if (bookingsState.error != null) {
+      return Scaffold(
+        appBar: AppBar(
+          title: const Text('My Bookings'),
+          centerTitle: true,
+          backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+        ),
+        body: Center(
+          child: Text(bookingsState.error.toString()),
+        ),
+      );
+    }
+
+    // No Bookings State
+    if (bookingsState.bookings.isEmpty) {
+      return Scaffold(
+        appBar: AppBar(
+          title: const Text('My Bookings'),
+          centerTitle: true,
+          backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+        ),
+        body: Center(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              const Icon(
+                Icons.calendar_month,
+                size: 50,
+              ),
+              const SizedBox(height: 12),
+              Text(
+                'No bookings yet',
+                style: Theme.of(context).textTheme.titleMedium,
+              ),
+              const SizedBox(height: 6),
+              Text(
+                'Book a service to get started.',
+                style: Theme.of(context).textTheme.bodyMedium,
+              ),
+            ],
+          ),
+        ),
+      );
+    }
+
+
+
     return Scaffold(
       appBar: AppBar(title: Center(child: Text('My Bookings',
         style: Theme.of(context).textTheme.titleLarge, textAlign: TextAlign.center,)),
@@ -46,60 +115,29 @@ class _BookingsScreenState extends State<BookingsScreen> {
       body: SafeArea(
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: AppSpacing.lg),
-            child:
-            activeBookings.isEmpty && historyBookings.isEmpty
-            ?
-                Center(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Icon(Icons.calendar_month),
-                      SizedBox(height: 10,),
-                      Text('No upcoming bookings yet', style: Theme.of(context).textTheme.titleSmall,),
-                      SizedBox(height: 5,),
-                      Text('Book a service to get started.', style: Theme.of(context).textTheme.titleSmall,),
-                    ],
+            child: DefaultTabController(
+              length: 2,
+              child: Column(
+                children: [
+                  TabBar(
+                      tabs: [
+                        Tab(text: 'Upcoming',),
+                        Tab(text: 'History',),
+                      ]
                   ),
-                )
-            :
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                // SizedBox(height: 10,),
-                // SectionHeader(sectionName: 'Upcoming Bookings'),
-                // SizedBox(height: 10,),
 
-                Expanded(
-                  child: DefaultTabController(
-                    length: 2,
-                    child: Column(
-                        children: [
-                          TabBar(
-                              tabs: [
-                                Tab(text: 'Upcoming',),
-                                Tab(text: 'History',),
-                              ]
-                          ),
+                  SizedBox(height: AppSpacing.md,),
 
-                          SizedBox(height: AppSpacing.md,),
+                  Expanded(
+                      child: TabBarView(children: [
+                        buildBookingsList(activeBookings),
 
-                          Expanded(
-                              child:  TabBarView(children: [
-                                buildBookingsList(activeBookings),
-
-                                buildBookingsList(historyBookings)
-                              ])
-                          )
-                        ],
-                      ),
-                  ),
-                ),
-
-
-              ],
-            ),
+                        buildBookingsList(historyBookings)
+                      ])
+                  )
+                ],
+              ),
+            )
           )
       ),
     );
@@ -111,6 +149,6 @@ class _BookingsScreenState extends State<BookingsScreen> {
                                 itemBuilder: (context, index){
                                   return BookingItemCard(booking: bookings[index]);
                                 },
-                              );
+    );
   }
 }

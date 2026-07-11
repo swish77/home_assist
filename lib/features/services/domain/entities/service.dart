@@ -8,6 +8,7 @@ class Service {
   final String description;
   final String duration;
   final double rating;
+  final bool isPopular;
 
   const Service({
     required this.id,
@@ -16,6 +17,6 @@ class Service {
     required this.startingPrice,
     required this.description,
     required this.duration,
-    required this.rating
+    required this.rating, required this.isPopular
   });
 }

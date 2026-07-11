@@ -11,14 +11,16 @@ class Booking {
   final double amount;
   final String address;
   final String status;
+  final String notes;
 
-  Booking({
+  const Booking({
     required this.id,
     required this.serviceId,
     required this.serviceName,
     required this.bookingDate,
     required this.address,
     required this.status, required this.bookingTime, required this.providerName, required this.amount,
+    this.notes='',
   });
 
   String get formattedDate =>

@@ -1,11 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:home_assist/features/navigation/presentation/screens/main_navigation_screen.dart';
 import 'app/theme/app_theme.dart';
 
-void main() {
+Future<void> main() async{
+  WidgetsFlutterBinding.ensureInitialized();
   // debugPaintSizeEnabled = true;
   // debugPaintLayerBordersEnabled = true;
-  runApp(const MyApp());
+  await dotenv.load(fileName: ".env");
+
+  runApp(ProviderScope(
+      child: const MyApp()
+  ));
 }
 
 class MyApp extends StatelessWidget {

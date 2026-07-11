@@ -32,9 +32,4 @@ const categories = [
     name: 'Carpentry',
     icon: Icons.handyman,
   ),
-  ServiceCategory(
-    id: '7',
-    name: 'AC Repair',
-    icon: Icons.ac_unit,
-  ),
 ];

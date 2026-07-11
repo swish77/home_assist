@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:home_assist/core/constants/app_spacing.dart';
-import 'package:home_assist/core/constants/services.dart';
 import 'package:home_assist/features/bookings/presentation/screens/booking_screen.dart';
 import 'package:home_assist/features/providers/presentation/widgets/book_now_button.dart';
 import 'package:home_assist/features/services/domain/entities/service.dart';
@@ -10,12 +9,15 @@ import 'package:home_assist/shared/widgets/icon_text.dart';
 import 'package:home_assist/shared/widgets/section_header.dart';
 
 class ServiceCardsSection extends StatelessWidget {
+  final List<Service> services;
   final String searchQuery;
   final ServiceCategory category;
-  const ServiceCardsSection({super.key, required this.category, required this.searchQuery});
+  const ServiceCardsSection({super.key, required this.category, required this.searchQuery, required this.services});
 
   @override
   Widget build(BuildContext context) {
+
+
     final filteredServices = services.where((service) {
       final matchesCategory = service.category.id == category.id;
 
@@ -25,8 +27,8 @@ class ServiceCardsSection extends StatelessWidget {
       return matchesCategory && matchesSearchQuery;
 
     }).toList();
-    
-    
+
+
     return filteredServices.isEmpty ?  Text('No Services Found'):
       Expanded(
       child: ListView.builder(
@@ -38,9 +40,11 @@ class ServiceCardsSection extends StatelessWidget {
                   filteredServices[index]),);
         }),
       );
+
   }
 
   void showServiceDetails(BuildContext context, Service service){
+
     final theme  = Theme.of(context);
     final iconTxtStyle = theme.textTheme.bodyLarge;
 
