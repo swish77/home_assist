@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:home_assist/features/ai_assistant/presentation/screens/ai_assist_screen.dart';
 
 class AiAssistantCard extends StatelessWidget {
   const AiAssistantCard({super.key});
@@ -22,9 +23,16 @@ class AiAssistantCard extends StatelessWidget {
                 children: [
                   Text('Need help finding your service?', style: textTheme.bodyMedium,),
                   SizedBox(height: 10,),
-                  Text('Describe the issue ->', style: textTheme.labelLarge!.copyWith(
-                    color: colorScheme.onPrimaryFixed, decoration: TextDecoration.underline,
-                  ),)
+                  GestureDetector(
+                    onTap: ()=> Navigator.push(context,
+                        MaterialPageRoute(builder: (context){{
+                          return AiAssistScreen();
+                        }
+                        })),
+                    child: Text('Describe the issue ->', style: textTheme.labelLarge!.copyWith(
+                      color: colorScheme.onPrimaryFixed, decoration: TextDecoration.underline,
+                    ),),
+                  )
                 ],
               ),
             ),

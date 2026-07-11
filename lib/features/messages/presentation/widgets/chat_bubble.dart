@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:home_assist/core/constants/chat_messages.dart';
 import 'package:home_assist/features/messages/domain/entities/chat_message.dart';
 import 'package:intl/intl.dart';
 

@@ -16,7 +16,8 @@ class ServiceCard extends StatelessWidget {
     final theme = Theme.of(context);
 
     return SizedBox(
-      width: 220,
+      // width: 220,
+      width: MediaQuery.of(context).size.width*0.4,
       child: Card(
         elevation: 2,
         color: AppColors.seed.shade200,
@@ -50,6 +51,7 @@ class ServiceCard extends StatelessWidget {
               Text(
                 service.name,
                 maxLines: 2,
+                textAlign: TextAlign.center,
                 overflow: TextOverflow.ellipsis,
                 style: theme.textTheme.titleMedium!.copyWith(
                   color: theme.colorScheme.onTertiary
